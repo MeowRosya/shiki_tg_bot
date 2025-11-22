@@ -26,11 +26,10 @@ async def main():
         client_id=config.CLIENT_ID, client_secret=config.CLIENT_SECRET
     )
 
-    # register_middlewares(dp, config)
     dp.include_routers(*routers_list)
 
     if config.ACCESS_TOKEN:
-        api_client.add_access_token(config.ACCESS_TOKEN)
+        api_client.update_tokens(config.ACCESS_TOKEN, config.REFRESH_TOKEN)
     else:
         api_client.authenticate_with_auth_code(config.AUTH_CODE)
 

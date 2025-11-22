@@ -32,11 +32,12 @@ class APIClient:
 
         print(f"Get access token: {self.access_token}")
 
-    def add_access_token(self, access_token) -> None:
+    def update_tokens(self, access_token, refresh_token) -> None:
         """
         Used when access token already exists
         """
         self.access_token = access_token
+        self.refresh_token = refresh_token
 
     def get_anime(self, anime_title: str):
         url = "https://shikimori.one/api/graphql"
